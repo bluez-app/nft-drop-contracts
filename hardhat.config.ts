@@ -33,6 +33,7 @@ const chainIds = {
   arbitrum_goerli: 421613,
   binance: 56,
   binance_testnet: 97,
+  shibuya: 81,
 };
 
 // Ensure that we have all the environment variables we need.
@@ -89,6 +90,9 @@ function createTestnetConfig(network: keyof typeof chainIds): NetworkUserConfig 
     case "binance_testnet":
       nodeUrl = "https://data-seed-prebsc-1-s1.binance.org:8545/";
       break;
+    case "shibuya":
+      nodeUrl = "https://shibuya.public.blastapi.io"
+      break
   }
 
   return {
@@ -178,6 +182,7 @@ if (testPrivateKey) {
     optimism_goerli: createTestnetConfig("optimism_goerli"),
     binance: createTestnetConfig("binance"),
     binance_testnet: createTestnetConfig("binance_testnet"),
+    shibuya: createTestnetConfig("shibuya"),
   };
 }
 
